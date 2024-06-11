@@ -21,7 +21,12 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const SettingsContext = createContext();
+export const SettingsContext = createContext({
+  itemsPerPage: 3,
+  hideCompleted: true,
+  setItemsPerPage: () => {},
+  setHideCompleted: () => {},
+});
 
 export const SettingsProvider = ({ children }) => {
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -35,8 +40,14 @@ export const SettingsProvider = ({ children }) => {
     }
   }, []);
 
+  const saveSettings = (perPage, hideCompleted) => {
+    localStorage.setItem('settings', JSON.stringify({ itemsPerPage: perPage, hideCompleted }));
+    setItemsPerPage(perPage);
+    setHideCompleted(hideCompleted);
+  };
+
   return (
-    <SettingsContext.Provider value={{ itemsPerPage, hideCompleted }}>
+    <SettingsContext.Provider value={{ itemsPerPage, hideCompleted, setItemsPerPage, setHideCompleted, saveSettings }}>
       {children}
     </SettingsContext.Provider>
   );
