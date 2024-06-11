@@ -4,6 +4,7 @@ import useForm from '../hooks/form';
 import { v4 as uuid } from "uuid";
 import { useSettings } from '../Context/SettingsContext'
 import './styles.scss'; // Import the styles
+import Form from '../SettingsForm';
 
 const Todo = () => {
   const { itemsPerPage, hideCompleted } = useSettings();
@@ -91,6 +92,12 @@ const Todo = () => {
         </label>
       </form>
 
+      <Form // Render the List component
+        items={paginatedList}
+        toggleComplete={toggleComplete}
+        deleteItem={deleteItem}
+      />
+
       <div>
         {paginatedList.map((item) => (
           <div key={item.id}>
@@ -98,7 +105,7 @@ const Todo = () => {
             <p><small>Assigned To: {item.assignee}</small></p>
             <p><small>Difficulty: {item.difficulty}</small></p>
             <div onClick={() => toggleComplete(item.id)}>
-              Complete: {item.complete.toString()}
+              Complete: {item.complete ? "true" : "false"}
             </div>
             <button onClick={() => deleteItem(item.id)}>Delete</button>
             <hr />
