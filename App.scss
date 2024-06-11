@@ -1,0 +1,119 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+body {
+  font-family: 'Arial, sans-serif';
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+$primary-color: #465D4E;
+$secondary-color: #7F7F70;
+$font-color: #343a40;
+$background-color: #F9F9F6;
+
+@import './Components/Header/styles';
+@import './Components/Footer/styles';
+@import './Components/Todo/styles';
+
+header {
+  background: $primary-color;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+footer {
+  background: $secondary-color;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+form {
+  background: $background-color;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+
+    span {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="range"] {
+      padding: 0;
+    }
+
+    button {
+      background: $primary-color;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+
+  .todo-item {
+    background: $background-color;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    p {
+      margin: 0;
+    }
+
+    small {
+      color: $secondary-color;
+    }
+
+    button {
+      background: $secondary-color;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: darken($secondary-color, 10%);
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import App from '../App';
-import { SettingsProvider } from '../Context/Settings';
+import { SettingsProvider } from '../Components/Context/Settings';
 
 describe('App Component Tests', () => {
   test('renders the app with header and footer', () => {
