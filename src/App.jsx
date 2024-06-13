@@ -1,29 +1,17 @@
-// import Todo from './Components/Todo';
-// import Header from './Components/Header';
-// import Footer from './Components/Footer';
- 
-// const App = () => (
-//   <>
-//     <Header />
-//     <Todo />
-//     <Footer />
-//   </>
-// );
-
-// export default App;
-
-// App.jsx
-
+import React from 'react';
 import Todo from './Components/Todo';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-// import SettingsForm from './Components/SettingsForm';
+import Login from './Components/auth/login.jsx';
+import Auth from './Components/auth/auth.jsx';
 
 const App = () => (
   <>
     <Header />
-    {/* <SettingsForm /> */}
-    <Todo />
+    <Login />
+    <Auth capability="read">
+      <Todo />
+    </Auth>
     <Footer />
   </>
 );
